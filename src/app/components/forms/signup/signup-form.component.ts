@@ -19,11 +19,11 @@ export class SignupFormComponent {
   @ViewChild('dialogErrorTemplate')
   public dialogErrorTemplate!: TemplateRef<HTMLElement>;
   public signupForm = this.formBuilder.nonNullable.group({
-    firstName: ['Dennis', Validators.required],
-    lastName: ['Otten', Validators.required],
-    email: ['test@test.nl', [Validators.required, Validators.email]],
+    firstName: ['', Validators.required],
+    lastName: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
     password: [
-      'testTEST!',
+      '',
       [
         Validators.required,
         Validators.minLength(8),
@@ -66,17 +66,17 @@ export class SignupFormComponent {
     });
   }
 
-  private openErrorDialog(): void {
+  public openErrorDialog(): void {
     this.dialog.open(this.dialogErrorTemplate, {
       width: '250px',
     });
   }
 
-  private handleSavedUser(user: UserSaved) {
+  public handleSavedUser(user: UserSaved) {
     this.signupService.savedUser$.next(user);
   }
 
-  private handleError() {
+  public handleError() {
     this.openErrorDialog();
   }
 }
