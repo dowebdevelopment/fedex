@@ -4,7 +4,14 @@ import {
   TemplateRef,
   ViewChild,
 } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormControl,
+  ValidationErrors,
+  ValidatorFn,
+  Validators,
+} from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { SignupService } from 'src/app/services/signup.service';
 import { UserForm, UserSaved } from 'src/app/types/user.types';
@@ -29,7 +36,7 @@ export class SignupFormComponent {
         Validators.required,
         Validators.minLength(8),
         Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])/),
-        this.noNameValidator()
+        this.noNameValidator(),
       ],
     ],
   });

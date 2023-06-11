@@ -1,18 +1,22 @@
-<ng-container *ngIf="{ savedUser: savedUser$ | async, loading: loading$ | async } as obs">
-    <ng-container *ngIf="obs.savedUser && !obs.loading">
-        <p>User <strong>{{obs.savedUser.name}}</strong> saved, with ID <strong>{{obs.savedUser.id}}</strong></p>
-    </ng-container>
-    <ng-container *ngIf="obs.loading"><mat-spinner diameter="16"></mat-spinner></ng-container>
-    <mat-divider></mat-divider>
-    <mat-card>
-        <mat-card-header>
-            <mat-card-title>
-                Please fill out this form
-            </mat-card-title>
-            <mat-card-subtitle>All fields are required</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-            <app-signup-form></app-signup-form>
-        </mat-card-content>
-    </mat-card>
+<ng-container
+  *ngIf="{ savedUser: savedUser$ | async, loading: loading$ | async } as obs">
+  <ng-container *ngIf="obs.savedUser && !obs.loading">
+    <p>
+      User <strong>{{ obs.savedUser.name }}</strong> saved, with ID
+      <strong>{{ obs.savedUser.id }}</strong>
+    </p>
+  </ng-container>
+  <ng-container *ngIf="obs.loading"
+    ><mat-spinner diameter="24"></mat-spinner
+  ></ng-container>
+  <mat-divider></mat-divider>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title> Please fill out this form </mat-card-title>
+      <mat-card-subtitle>All fields are required</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <app-signup-form></app-signup-form>
+    </mat-card-content>
+  </mat-card>
 </ng-container>

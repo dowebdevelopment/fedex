@@ -1,3 +1,3 @@
 export const environment = {
-    apiUrl: 'https://demo-api.now.sh/users',
+  apiUrl: 'https://demo-api.now.sh/users',
 };

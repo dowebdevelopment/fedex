@@ -1,6 +1,13 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject, catchError, finalize, map, tap, throwError } from 'rxjs';
+import {
+  Observable,
+  Subject,
+  catchError,
+  finalize,
+  map,
+  throwError,
+} from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { UserForm, UserAPI, UserSaved } from '../types/user.types';
 
@@ -15,11 +22,10 @@ export class SignupService {
 
   public signupUser(user: UserForm): Observable<UserSaved> {
     this.setLoadingState(true);
-    
     return this.httpClient.post<UserAPI>(environment.apiUrl, user).pipe(
-      map((user) => this.mapUserAPItoUserSaved(user)),
+      map(user => this.mapUserAPItoUserSaved(user)),
       catchError(this.handleError),
-      finalize(() => this.setLoadingState(false)),
+      finalize(() => this.setLoadingState(false))
     );
   }
 
@@ -30,11 +36,11 @@ export class SignupService {
     };
   }
 
-  private setLoadingState(loading: boolean) {
-    this.loading$.next(loading)
+  private setLoadingState(loading: boolean): void {
+    this.loading$.next(loading);
   }
 
-  private handleError(error: HttpErrorResponse) {
+  private handleError(error: HttpErrorResponse): Observable<never> {
     let errorMessage = 'An error occurred';
     if (error.error instanceof ErrorEvent) {
       // Client-side error
