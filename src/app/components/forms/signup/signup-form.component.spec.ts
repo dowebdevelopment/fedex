@@ -19,7 +19,7 @@ describe('SignupFormComponent', () => {
     firstName: 'John',
     lastName: 'Doe',
     email: 'john.doe@example.com',
-    password: 'JohnDoe!'
+    password: 'testTest!'
   };
   let component: SignupFormComponent;
   let fixture: ComponentFixture<SignupFormComponent>;
